@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Game } from 'src/app/model/class/game';
+import { GameService } from 'src/app/service/game.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  gameList$: Observable<Game[]> = this.gameService.getAll();
+
+
+  constructor(
+    private gameService: GameService
+  ) { }
 
   ngOnInit(): void {
   }

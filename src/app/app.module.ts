@@ -8,6 +8,8 @@ import { HomeComponent } from './page/home/home.component';
 import { ListComponent } from './page/list/list.component';
 import { AdminComponent } from './page/admin/admin.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
+import { CardComponent } from './common/card/card.component';
+import { ImgPathPipe } from './pipe/img-path.pipe';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { NavbarComponent } from './common/navbar/navbar.component';
     ListComponent,
     AdminComponent,
     NavbarComponent,
-
+    CardComponent,
+    ImgPathPipe,
   ],
   imports: [
     BrowserModule,

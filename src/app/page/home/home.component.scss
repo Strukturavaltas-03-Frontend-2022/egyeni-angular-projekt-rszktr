@@ -1,0 +1,29 @@
+.container {
+  padding: 0;
+  margin: 0;
+}
+
+.grid__games {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1%;
+}
+
+.cell__game {
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .cell__game {
+    width: 49%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .cell__game {
+    width: 24%;
+  }
+}

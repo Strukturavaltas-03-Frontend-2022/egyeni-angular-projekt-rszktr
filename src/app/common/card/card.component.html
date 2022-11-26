@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card__top">
+    <div class="image__container">
+      <img [src]='oneGame.image | imgPath' [alt]='oneGame.title'>
+    </div>
+    <div class="card__status--color"></div>
+    <div class="status__container">
+      <div class="status--text">{{oneGame.status}}</div>
+    </div>
+  </div>
+  <div class="card__bottom">
+    <div class="tag__container">
+      <div class="tag tag--platform">{{oneGame.platform}}</div>
+      <div class="tag tag--format">{{oneGame.format}}</div>
+      <div class="tag tag--year">{{oneGame.releaseYear}}</div>
+    </div>
+    <div class="title">{{oneGame.title}}</div>
+  </div>
+</div>

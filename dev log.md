@@ -1,3 +1,9 @@
+## v0.25
+- képek hozzáadása lokálisan (/assets/images)
+- kártya design kialakítása
+- kártyalistázó kialakítása (egyelőre a HomeComponent-ben)
+- kártyalistázó reszponzivitásának kialakítása
+
 ## v0.1
 - config.service.ts létrehozása dinamikus táblákhoz és reaktív form-okhoz
 - Adatok kezdetleges táblázatos megjelenítése a listázóban
