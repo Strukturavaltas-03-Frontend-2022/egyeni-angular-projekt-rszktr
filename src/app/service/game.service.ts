@@ -27,7 +27,7 @@ export class GameService {
           const helperArray: Game[] = [];
           for (const key in serverData) {
             if (serverData.hasOwnProperty(key)) {
-              helperArray.push({ ...serverData[key], uniqueId: key });
+              helperArray.push({ ...serverData[key], firebaseId: key });
             }
           }
           return helperArray;
@@ -40,7 +40,7 @@ export class GameService {
   }
 
   remove(target: Game) {
-    return this.http.delete(`${this.firebaseUrl}${this.entityName}/${target.firebaseId}.json`);
+    return this.http.delete(`${this.firebaseUrl}${this.entityName}/${target.firebaseId}`);
   }
 
   update(target: Game) {

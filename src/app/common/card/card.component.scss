@@ -120,3 +120,24 @@
   background-color: blue;
   height: 5px;
 }
+
+.card__buttons {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 1rem;
+  animation: button-appear 0.3s ease;
+}
+
+@keyframes button-appear {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 10px;
+    opacity: 1;
+  }
+}

@@ -10,6 +10,7 @@ import { AdminComponent } from './page/admin/admin.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { CardComponent } from './common/card/card.component';
 import { ImgPathPipe } from './pipe/img-path.pipe';
+import { CardButtonsComponent } from './common/card-buttons/card-buttons.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ImgPathPipe } from './pipe/img-path.pipe';
     NavbarComponent,
     CardComponent,
     ImgPathPipe,
+    CardButtonsComponent,
   ],
   imports: [
     BrowserModule,

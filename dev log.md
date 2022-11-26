@@ -1,3 +1,8 @@
+## v0.3
+- gombok hozzáadása kártyákhoz
+- lassú ráébredés, hogy a realtime database nem enged localhostról törölni 
+CORS miatt. hosting beállítása folyamatban.
+
 ## v0.25
 - képek hozzáadása lokálisan (/assets/images)
 - kártya design kialakítása

@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" (mouseenter)="showCardButtons=true" (mouseleave)="showCardButtons=false">
   <div class="card__top">
     <div class="image__container">
       <img [src]='oneGame.image | imgPath' [alt]='oneGame.title'>
@@ -16,4 +16,20 @@
     </div>
     <div class="title">{{oneGame.title}}</div>
   </div>
+  <app-card-buttons *ngIf="showCardButtons" class="card__buttons" (clicked)="onDeleteCard(oneGame)">
+  </app-card-buttons>
 </div>
+
+<!-- <div *ngFor="let route of toolbarRoutes">
+  <button mat-stroked-button
+    class="toolbar-nav-button"
+    (click)="routeTo(route.path)"
+    (mouseenter)="route.showHoverable=true"
+    (mouseleave)="route.showHoverable=false">
+
+        {{route.displayName}}
+  </button>
+
+  <app-hoverable *ngIf="route.showHoverable" [component]="route.component"></app-hoverable>
+
+</div> -->
