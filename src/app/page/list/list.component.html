@@ -1,1 +1,24 @@
-<p>list works!</p>
+<div class="row">
+  <div class="col-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let col of columns">{{col.title}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of gameList$ | async">
+          <td *ngFor="let col of columns">
+            {{row[col.key]}}
+          </td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-info"><i class="fa fa-edit"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
