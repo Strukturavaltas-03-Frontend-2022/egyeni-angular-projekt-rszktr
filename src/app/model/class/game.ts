@@ -1,5 +1,6 @@
 export class Game {
   [x: string]: any;
+  firebaseId: string = '';
   id: number = 0;
   title: string = '';
   platform: string = '';
