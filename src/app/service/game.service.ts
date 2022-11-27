@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Game } from '../model/class/game';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -15,9 +16,12 @@ export class GameService {
   firebaseUrl: string = environment.apiURL;
   entityName: string = 'games';
 
+  gameList$: Observable<Game[]> = this.getAll();
+
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
   getAll() {
     return this.http
@@ -35,23 +39,23 @@ export class GameService {
       );
   }
 
-  get(id: number) {
-    return this.http.get<Game>(`${this.firebaseUrl}${this.entityName}/${id}.json`
-    )
+  get(firebaseId: string): Observable<Game> {
+    return this.http.get<Game>(`${this.firebaseUrl}${this.entityName}/${firebaseId}.json`);
   }
 
-  create(newTarget: Game) {
-    return this.http.post(`${this.firebaseUrl}${this.entityName}.json`, newTarget);
+
+  create(item: Game) {
+    return this.http.post(`${this.firebaseUrl}${this.entityName}.json`, item);
   }
 
-  remove(target: Game) {
-    return this.http.delete(`${this.firebaseUrl}${this.entityName}/${target.firebaseId}.json`);
+  remove(item: Game) {
+    return this.http.delete(`${this.firebaseUrl}${this.entityName}/${item.firebaseId}.json`);
   }
 
-  update(target: Game) {
+  update(item: Game) {
     return this.http.patch(
-      `${this.firebaseUrl}${this.entityName}/${target.firebaseId}.json`,
-      target
+      `${this.firebaseUrl}${this.entityName}/${item.firebaseId}.json`,
+      item
     );
   }
 

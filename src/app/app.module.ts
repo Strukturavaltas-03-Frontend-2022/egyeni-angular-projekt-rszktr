@@ -13,6 +13,8 @@ import { CardComponent } from './common/card/card.component';
 import { ImgPathPipe } from './pipe/img-path.pipe';
 import { CardButtonsComponent } from './common/card-buttons/card-buttons.component';
 import { EditComponent } from './page/edit/edit.component';
+import { StrToBooleanPipe } from './pipe/str-to-boolean.pipe';
+import { DefaultSelectedPipe } from './pipe/default-selected.pipe';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { EditComponent } from './page/edit/edit.component';
     ImgPathPipe,
     CardButtonsComponent,
     EditComponent,
+    StrToBooleanPipe,
+    DefaultSelectedPipe,
   ],
   imports: [
     BrowserModule,

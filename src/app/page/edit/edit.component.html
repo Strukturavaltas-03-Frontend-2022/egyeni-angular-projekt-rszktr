@@ -4,7 +4,21 @@
 
       <div *ngFor="let field of fields" class="form-group">
         <label>{{field.label}}</label>
-        <input [formControlName]="field.key" [name]="field.key" [type]="field.type" class="form-control">
+
+        <input *ngIf="field.type==null" [formControlName]="field.key" [name]="field.key" type="text"
+          class="form-control">
+
+        <input *ngIf="field.type=='number'" [formControlName]="field.key" [name]="field.key" [type]="field.type"
+          class="form-control">
+
+        <input *ngIf="field.type=='checkbox'" [formControlName]="field.key" [name]="field.key" [type]="field.type"
+          class="form-check-input" [checked]="game[field.key] | strToBoolean">
+
+        <select *ngIf="field.type=='select'" [formControlName]="field.key" [name]="field.key" class="form-select">
+          <option *ngFor="let option of field.options" value=option
+            [selected]="option | defaultSelected : game[field.key]">{{option}} </option>
+        </select>
+
         <div *ngIf="gameFormGroup.controls[field.key].invalid" class="error-message">
           {{field.message}}
         </div>

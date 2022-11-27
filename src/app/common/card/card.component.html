@@ -16,6 +16,7 @@
     </div>
     <div class="title">{{oneGame.title}}</div>
   </div>
-  <app-card-buttons *ngIf="showCardButtons" class="card__buttons" (clicked)="onDeleteCard(oneGame)">
+  <app-card-buttons *ngIf="showCardButtons" class="card__buttons" (deleteCardClick)="onDeleteCard(oneGame)"
+    [gameId]="oneGame.firebaseId">
   </app-card-buttons>
 </div>

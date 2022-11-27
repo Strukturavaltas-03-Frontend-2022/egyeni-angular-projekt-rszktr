@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Game } from 'src/app/model/class/game';
 import { ConfigService, ITableColumn } from 'src/app/service/config.service';
 import { GameService } from 'src/app/service/game.service';
@@ -13,7 +13,6 @@ import { GameService } from 'src/app/service/game.service';
 export class ListComponent implements OnInit {
 
   columns: ITableColumn[] = this.config.gameTableColumns;
-
   gameList$: Observable<Game[]> = this.gameService.getAll();
 
   constructor(

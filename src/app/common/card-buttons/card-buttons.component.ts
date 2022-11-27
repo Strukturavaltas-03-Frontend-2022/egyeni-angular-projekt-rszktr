@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 
 @Component({
@@ -8,7 +8,10 @@ import { GameService } from 'src/app/service/game.service';
 })
 export class CardButtonsComponent implements OnInit {
 
-  @Output() clicked: EventEmitter<boolean> = new EventEmitter()
+  @Input() gameId: string = '';
+
+  @Output() deleteCardClick: EventEmitter<boolean> = new EventEmitter()
+  @Output() editCardClick: EventEmitter<boolean> = new EventEmitter()
 
   constructor(
   ) { }
@@ -17,7 +20,11 @@ export class CardButtonsComponent implements OnInit {
   }
 
   onDeleteButtonClick(): void {
-    this.clicked.emit(true);
+    this.deleteCardClick.emit(true);
+  }
+
+  onEditButtonClick(): void {
+    this.editCardClick.emit(true);
   }
 
 }

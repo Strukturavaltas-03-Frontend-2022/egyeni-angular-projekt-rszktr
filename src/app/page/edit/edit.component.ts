@@ -5,6 +5,7 @@ import { Observable, switchMap } from 'rxjs';
 import { Game } from 'src/app/model/class/game';
 import { ConfigService, FormField } from 'src/app/service/config.service';
 import { GameService } from 'src/app/service/game.service';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-edit',
@@ -14,13 +15,15 @@ import { GameService } from 'src/app/service/game.service';
 
 export class EditComponent implements OnInit {
 
-  game$: Observable<Game> = this.ar.params.pipe(switchMap(params => this.gameService.get(params['id'])))
 
   fields: FormField[] = this.config.gameEditorFormFields;
-
   gameFormGroup: FormGroup = new FormGroup({})
-
   game: Game | null = null;
+
+  id: string = '';
+  game$: Observable<Game> = this.ar.params.pipe(switchMap(params => this.gameService.get(params['id'])))
+
+
 
   constructor(
     private ar: ActivatedRoute,
@@ -35,9 +38,12 @@ export class EditComponent implements OnInit {
       this.game = game;
     })
 
-    console.log(this.ar.params)
-
+    // this.ar.params.subscribe((params) => {
+    //   this.id = params['id'];
+    //   this.gameService.get(this.id).subscribe(data => this.game$ = data)
+    // })
   }
+
 
   createControls(game: Game): void {
     this.fields.forEach(field => {

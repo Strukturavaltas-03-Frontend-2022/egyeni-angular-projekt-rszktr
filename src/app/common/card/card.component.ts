@@ -14,6 +14,7 @@ export class CardComponent implements OnInit {
   @Input() oneGame: Game = new Game();
 
   @Output() deleteCardClick: EventEmitter<Game> = new EventEmitter
+  @Output() editCardClick: EventEmitter<Game> = new EventEmitter
 
   constructor(
     private gameService: GameService
@@ -23,9 +24,9 @@ export class CardComponent implements OnInit {
   }
 
   onDeleteCard(game: Game): void {
-    console.log(game)
-    this.gameService.remove(game).subscribe(
-      () => console.log(`${game.title} has been deleted`)
-    );
+    // this.gameService.remove(game).subscribe(
+    //   () => console.log(`${game.title} has been deleted`)
+    // );
   }
+
 }

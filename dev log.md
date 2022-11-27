@@ -1,4 +1,11 @@
-## v0.3
+## v0.5
+- A szerkesztés gombra kattintás a játék egyedi szerkesztő oldalára visz.
+- A szerkesztő oldalon az input mezőkben az adatok a szerverről származnak.
+- Reaktív form, az adatoknak megfelelő típusú elemekkel.
+- Checkbox checked állapota a játék értékei alapján.
+- Játék értékeivel egyező alapértelmezett elemek a select típusú mezőknél is.
+
+## v0.35
 - hosting elkészítése: https://game-collection-fb8ef.web.app/
 - az éles weboldalon már elfogadja a törlés parancsot.
 
