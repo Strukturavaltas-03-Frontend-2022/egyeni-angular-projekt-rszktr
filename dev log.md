@@ -1,4 +1,8 @@
 ## v0.3
+- hosting elkészítése: https://game-collection-fb8ef.web.app/
+- az éles weboldalon már elfogadja a törlés parancsot.
+
+## v0.3
 - gombok hozzáadása kártyákhoz
 - lassú ráébredés, hogy a realtime database nem enged localhostról törölni 
 CORS miatt. hosting beállítása folyamatban.

@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "game-collection-fb8ef",
+    "public": "dist/game-collection",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

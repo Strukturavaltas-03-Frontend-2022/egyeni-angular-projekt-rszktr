@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './page/home/home.component';
@@ -11,6 +12,7 @@ import { NavbarComponent } from './common/navbar/navbar.component';
 import { CardComponent } from './common/card/card.component';
 import { ImgPathPipe } from './pipe/img-path.pipe';
 import { CardButtonsComponent } from './common/card-buttons/card-buttons.component';
+import { EditComponent } from './page/edit/edit.component';
 
 
 @NgModule({
@@ -23,11 +25,14 @@ import { CardButtonsComponent } from './common/card-buttons/card-buttons.compone
     CardComponent,
     ImgPathPipe,
     CardButtonsComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

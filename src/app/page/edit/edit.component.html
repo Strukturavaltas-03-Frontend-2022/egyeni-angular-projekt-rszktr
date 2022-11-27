@@ -1,0 +1,19 @@
+<div class="row mt-3" *ngIf="game">
+  <div class="col-12">
+    <form [formGroup]="gameFormGroup" (ngSubmit)="onUpdate()" style="max-width: 400px" action="" class="mx-auto">
+
+      <div *ngFor="let field of fields" class="form-group">
+        <label>{{field.label}}</label>
+        <input [formControlName]="field.key" [name]="field.key" [type]="field.type" class="form-control">
+        <div *ngIf="gameFormGroup.controls[field.key].invalid" class="error-message">
+          {{field.message}}
+        </div>
+      </div>
+
+      <div class="d-grid gap-2 mt-3">
+        <button class="btn btn-primary" type="submit" [disabled]="gameFormGroup.invalid">
+          <i class="fa fa-save"></i>update user</button>
+      </div>
+    </form>
+  </div>
+</div>

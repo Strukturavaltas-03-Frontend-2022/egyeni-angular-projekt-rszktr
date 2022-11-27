@@ -34,5 +34,34 @@ export class ConfigService {
     { title: 'Digital Location', key: 'digitalLocation' },
   ]
 
+  gameEditorFormFields: FormField[] = [
+    {
+      label: 'Title',
+      key: 'title',
+      validators: [
+        Validators.pattern(/^[A-Ű][A-Űa-ű .]{4,24}$/),
+        Validators.required
+      ],
+      message: 'Minimum 5 characters required!'
+    },
+    {
+      label: 'Platform',
+      key: 'platform',
+      validators: [
+        Validators.email,
+        Validators.required
+      ],
+      message: 'A valid e-mail is required!'
+    },
+    {
+      label: 'Format',
+      key: 'format',
+      validators: [
+        Validators.required
+      ],
+      message: 'Please set a category.'
+    }
+  ]
+
   constructor() { }
 }

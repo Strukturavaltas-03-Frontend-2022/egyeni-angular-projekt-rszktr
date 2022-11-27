@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './page/admin/admin.component';
+import { EditComponent } from './page/edit/edit.component';
 import { HomeComponent } from './page/home/home.component';
 import { ListComponent } from './page/list/list.component';
 
@@ -17,10 +18,10 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
   },
-  // {
-  //   path: 'user/edit/:id',
-  //   component: AdminComponent,
-  // },
+  {
+    path: 'game/edit/:id',
+    component: EditComponent,
+  },
   {
     path: '**',
     redirectTo: '',

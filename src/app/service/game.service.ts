@@ -35,12 +35,17 @@ export class GameService {
       );
   }
 
+  get(id: number) {
+    return this.http.get<Game>(`${this.firebaseUrl}${this.entityName}/${id}.json`
+    )
+  }
+
   create(newTarget: Game) {
     return this.http.post(`${this.firebaseUrl}${this.entityName}.json`, newTarget);
   }
 
   remove(target: Game) {
-    return this.http.delete(`${this.firebaseUrl}${this.entityName}/${target.firebaseId}`);
+    return this.http.delete(`${this.firebaseUrl}${this.entityName}/${target.firebaseId}.json`);
   }
 
   update(target: Game) {
