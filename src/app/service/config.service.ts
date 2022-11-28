@@ -105,6 +105,7 @@ export class ConfigService {
       type: 'select',
       options: ['Physical', 'eShop', 'PS Store', 'Steam'],
       validators: [
+        Validators.required
       ],
       message: 'Please set a category.'
     }

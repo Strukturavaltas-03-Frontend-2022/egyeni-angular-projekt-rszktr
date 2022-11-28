@@ -24,9 +24,9 @@ export class CardComponent implements OnInit {
   }
 
   onDeleteCard(game: Game): void {
-    // this.gameService.remove(game).subscribe(
-    //   () => console.log(`${game.title} has been deleted`)
-    // );
+    this.gameService.remove(game).subscribe(
+      () => console.log(`${game.title} has been deleted`)
+    );
   }
 
 }

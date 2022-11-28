@@ -1,9 +1,33 @@
-<div class="container" class="grid__games">
-  <div *ngFor="let game of gameList$ | async" class="cell__game">
-    <app-card [oneGame]="game"></app-card>
-  </div>
-</div>
+<div class="container">
 
+  <div class="row control__container mt-3">
+
+    <div class="control__left">
+      <button routerLink="/edit/0" class="button__add" data-bs-toggle="tooltip" data-bs-placement="top"
+        title="Add game to collection">
+        <i class="fa fa-solid fa-plus"></i></button>
+    </div>
+
+    <div class="control__right">
+      <ngb-pagination class="control__pagination" [(page)]="page" [pageSize]="pageSize"
+        [collectionSize]="collectionSize" class="d-flex justify-content-end pe-2">
+      </ngb-pagination>
+    </div>
+  </div>
+
+  <div class="row" class="grid__games">
+    <div *ngFor="let game of gameList$ | async | slice: (page-1) * pageSize : page * pageSize" class="cell__game">
+      <app-card [oneGame]="game"></app-card>
+    </div>
+  </div>
+
+  <div class="row">
+    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="collectionSize"
+      class="d-flex justify-content-end pe-4">
+    </ngb-pagination>
+  </div>
+
+</div>
 
 
 <!-- Táblázatos megjelenítés -->

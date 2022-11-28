@@ -1,3 +1,9 @@
+## v0.6
+- Update metódus működik
+- Pagination hozzáadása 'Bootstrap widgets' kiegészítővel (dinamikus)
+- Új játék hozzáadása gomb tooltip-pel. (bug: oldalváltáskor helyén marad)
+- Új játék gomb 0 indexű, üres űrlapra visz. 
+
 ## v0.5
 - A szerkesztés gombra kattintás a játék egyedi szerkesztő oldalára visz.
 - A szerkesztő oldalon az input mezőkben az adatok a szerverről származnak.

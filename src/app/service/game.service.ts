@@ -40,9 +40,13 @@ export class GameService {
   }
 
   get(firebaseId: string): Observable<Game> {
-    return this.http.get<Game>(`${this.firebaseUrl}${this.entityName}/${firebaseId}.json`);
+    return this.http.get<Game>(`${this.firebaseUrl}${this.entityName}/${firebaseId}.json`)
+      .pipe(map((gameData) => {
+        gameData['firebaseId'] = firebaseId;
+        return gameData
+      })
+      )
   }
-
 
   create(item: Game) {
     return this.http.post(`${this.firebaseUrl}${this.entityName}.json`, item);

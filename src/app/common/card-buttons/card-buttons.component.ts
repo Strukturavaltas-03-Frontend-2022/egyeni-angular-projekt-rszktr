@@ -11,7 +11,6 @@ export class CardButtonsComponent implements OnInit {
   @Input() gameId: string = '';
 
   @Output() deleteCardClick: EventEmitter<boolean> = new EventEmitter()
-  @Output() editCardClick: EventEmitter<boolean> = new EventEmitter()
 
   constructor(
   ) { }
@@ -23,8 +22,5 @@ export class CardButtonsComponent implements OnInit {
     this.deleteCardClick.emit(true);
   }
 
-  onEditButtonClick(): void {
-    this.editCardClick.emit(true);
-  }
 
 }

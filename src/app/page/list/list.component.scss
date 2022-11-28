@@ -3,6 +3,38 @@
   margin: 0;
 }
 
+.control__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.control__left {
+  width: 50%;
+  padding-bottom: 0.9rem;
+}
+
+.control__right {
+  width: 50%;
+}
+
+.button__add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(107, 201, 63);
+  color: white;
+  border: none;
+  border-radius: 99rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.button__add:hover {
+  background-color: rgb(116, 230, 64);
+}
+
 .grid__games {
   display: flex;
   flex-direction: row;

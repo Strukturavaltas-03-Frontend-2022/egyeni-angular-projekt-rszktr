@@ -15,7 +15,7 @@
           class="form-check-input" [checked]="game[field.key] | strToBoolean">
 
         <select *ngIf="field.type=='select'" [formControlName]="field.key" [name]="field.key" class="form-select">
-          <option *ngFor="let option of field.options" value=option
+          <option *ngFor="let option of field.options" [value]="option"
             [selected]="option | defaultSelected : game[field.key]">{{option}} </option>
         </select>
 

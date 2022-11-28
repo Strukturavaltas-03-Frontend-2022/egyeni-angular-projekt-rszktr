@@ -11,8 +11,8 @@
   <div class="card__bottom">
     <div class="tag__container">
       <div class="tag tag--platform">{{oneGame.platform}}</div>
-      <div class="tag tag--format">{{oneGame.format}}</div>
-      <div class="tag tag--year">{{oneGame.releaseYear}}</div>
+      <div *ngIf="oneGame.format" class="tag tag--format">{{oneGame.format}}</div>
+      <div *ngIf="oneGame.releaseYear" class="tag tag--year">{{oneGame.releaseYear}}</div>
     </div>
     <div class="title">{{oneGame.title}}</div>
   </div>

@@ -15,15 +15,12 @@ import { __values } from 'tslib';
 
 export class EditComponent implements OnInit {
 
-
   fields: FormField[] = this.config.gameEditorFormFields;
   gameFormGroup: FormGroup = new FormGroup({})
   game: Game | null = null;
 
   id: string = '';
   game$: Observable<Game> = this.ar.params.pipe(switchMap(params => this.gameService.get(params['id'])))
-
-
 
   constructor(
     private ar: ActivatedRoute,
@@ -33,15 +30,20 @@ export class EditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.game$.subscribe(game => {
-      this.createControls(game)
-      this.game = game;
-    })
+    this.ar.params.subscribe((params) => {
+      this.id = params['id'];
 
-    // this.ar.params.subscribe((params) => {
-    //   this.id = params['id'];
-    //   this.gameService.get(this.id).subscribe(data => this.game$ = data)
-    // })
+      if (this.id === '0') {
+        this.game = new Game();
+        this.createControls(this.game)
+      } else {
+        this.game$.subscribe(game => {
+          this.createControls(game)
+          this.game = game;
+        })
+      }
+
+    })
   }
 
 
@@ -54,7 +56,7 @@ export class EditComponent implements OnInit {
 
   onUpdate(): void {
     const game = this.gameFormGroup.value;
-    game.id = this.game?.id;
+    game.firebaseId = this.game?.firebaseId;
     this.gameService.update(game).subscribe(
       game => this.router.navigate(['/', 'list']),
     )
