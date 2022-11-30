@@ -1,3 +1,6 @@
+## v0.91
+- Rövid README megírása.
+
 ## v0.9
 - Pipe-ok (szűrő, kereső, sorbarendező)
 - Update / add váltás megvalósítása a szerkesztő oldalon
