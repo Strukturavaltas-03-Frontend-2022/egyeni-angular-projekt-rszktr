@@ -8,7 +8,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './page/home/home.component';
 import { ListComponent } from './page/list/list.component';
-import { AdminComponent } from './page/admin/admin.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { CardComponent } from './common/card/card.component';
 import { ImgPathPipe } from './pipe/img-path.pipe';
@@ -16,6 +15,14 @@ import { CardButtonsComponent } from './common/card-buttons/card-buttons.compone
 import { EditComponent } from './page/edit/edit.component';
 import { StrToBooleanPipe } from './pipe/str-to-boolean.pipe';
 import { DefaultSelectedPipe } from './pipe/default-selected.pipe';
+import { SortTitlePipe } from './pipe/sort-title.pipe';
+import { SortYearPipe } from './pipe/sort-year.pipe';
+import { SortFormatPipe } from './pipe/sort-format.pipe';
+import { SortPlatformPipe } from './pipe/sort-platform.pipe';
+import { FilterPlatformPipe } from './pipe/filter-platform.pipe';
+import { SearchPipe } from './pipe/search.pipe';
+import { SortStatusPipe } from './pipe/sort-status.pipe';
+import { WishlistCheckPipe } from './pipe/wishlist-check.pipe';
 
 
 @NgModule({
@@ -23,7 +30,6 @@ import { DefaultSelectedPipe } from './pipe/default-selected.pipe';
     AppComponent,
     HomeComponent,
     ListComponent,
-    AdminComponent,
     NavbarComponent,
     CardComponent,
     ImgPathPipe,
@@ -31,6 +37,14 @@ import { DefaultSelectedPipe } from './pipe/default-selected.pipe';
     EditComponent,
     StrToBooleanPipe,
     DefaultSelectedPipe,
+    SortTitlePipe,
+    SortYearPipe,
+    SortFormatPipe,
+    SortPlatformPipe,
+    FilterPlatformPipe,
+    SearchPipe,
+    SortStatusPipe,
+    WishlistCheckPipe
   ],
   imports: [
     BrowserModule,

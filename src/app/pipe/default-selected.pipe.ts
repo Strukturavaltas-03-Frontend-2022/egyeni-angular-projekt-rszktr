@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DefaultSelectedPipe implements PipeTransform {
 
   transform(currentOption: string, gameProperty: string): boolean {
-    console.log(gameProperty)
 
     return currentOption.toString() == gameProperty.toString() ? true : false;
   }

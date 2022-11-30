@@ -5,34 +5,109 @@
 
 .control__container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
-.control__left {
-  width: 50%;
-  padding-bottom: 0.9rem;
+.control__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.control__right {
-  width: 50%;
+.control__middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-bottom: solid 0.5px rgb(197, 197, 197);
+  margin-bottom: 1rem;
+}
+
+.control__filter {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.control__filter .input-group {
+  display: flex;
+  width: 100%;
+  padding: 0 0.9rem;
+}
+
+.control__filter--name {
+  width: 35px;
+}
+
+.control__filter .input-group label {
+  flex-grow: 1;
+}
+
+.control__search {
+  display: flex;
+  align-items: center;
+  justify-self: flex-end;
+  order: 2;
+  margin-bottom: 0.75rem;
+}
+
+.control__search input {
+  max-width: 200px;
+  flex-grow: 1;
+}
+
+.control__search select {
+  width: 140px;
 }
 
 .button__add {
   display: flex;
+  order: 1;
   justify-content: center;
   align-items: center;
+  justify-self: flex-start;
   background-color: rgb(107, 201, 63);
   color: white;
   border: none;
-  border-radius: 99rem;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 100%;
+  height: 3.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .button__add:hover {
   background-color: rgb(116, 230, 64);
+  width: 100%;
+  padding-left: 0;
+  transition: width 1s ease, padding-left 1.4s ease;
+}
+
+.button__add span {
+  max-width: 0;
+  padding-left: 0.5rem;
+  -webkit-transition: max-width 1s ease;
+  transition: max-width 1s ease;
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.button__add:hover span {
+  max-width: 7rem;
+}
+
+.sort__group {
+  width: 100%;
+}
+
+.sort__group--buttons {
+  width: 100%;
+  display: flex;
 }
 
 .grid__games {
@@ -57,5 +132,55 @@
 @media only screen and (min-width: 768px) {
   .cell__game {
     width: 24%;
+  }
+
+  .control__middle {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .button__add {
+    display: flex;
+    order: 2;
+    justify-content: center;
+    align-items: center;
+    justify-self: flex-start;
+    background-color: rgb(107, 201, 63);
+    color: white;
+    border: none;
+    border-radius: 99rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding-left: 1rem;
+    padding-top: 0.15rem;
+    margin-bottom: 0;
+  }
+
+  .button__add:hover {
+    background-color: rgb(116, 230, 64);
+    width: 8rem;
+    padding-left: 0;
+    transition: width 1s ease, padding-left 1.4s ease;
+  }
+
+  .control__top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .control__search {
+    order: 1;
+    margin-bottom: 0;
+  }
+
+  .button__add:hover {
+    background-color: rgb(116, 230, 64);
+    width: 8rem;
+    padding-left: 0;
+    transition: width 1s ease, padding-left 1.4s ease;
   }
 }

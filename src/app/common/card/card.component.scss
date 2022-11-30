@@ -81,16 +81,19 @@
 }
 .tag--format {
   width: 70px;
+  background-color: rgb(129, 129, 129);
   padding: 0.25rem 0 !important;
 }
 .tag--year {
   width: 40px;
-  background-color: rgb(105, 105, 105);
+  background-color: rgb(129, 129, 129);
 }
 
 .title {
   font-size: 1.1rem;
   padding: 0.5rem 0;
+  font-weight: 700;
+  color: rgb(34, 34, 34);
 }
 
 .status__container {
@@ -117,7 +120,6 @@
 }
 
 .card__status--color {
-  background-color: blue;
   height: 5px;
 }
 

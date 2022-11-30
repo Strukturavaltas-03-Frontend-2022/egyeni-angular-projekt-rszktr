@@ -1,3 +1,26 @@
+## v0.9
+- Pipe-ok (szűrő, kereső, sorbarendező)
+- Update / add váltás megvalósítása a szerkesztő oldalon
+- tooltip bug-ot nem sikerült, megoldani, inkább törölve
+- Kezdőoldal default bootstrap jumbotron, rövid üzenettel és gombbal
+- CSS igazítások, reszponzivitás, feltételes színezések... stb
+
+### Ismert problémák:
+- Pagination nem frissül pipe szűrések után. Nem is tudom, hogy lehetne megoldani, 
+esetleg párhuzamosan elindított számításokkal, de eh...
+- Hasonló probléma: Mivel örülök, hogy egyáltalán valamilyen szinten működőképes
+a Firebase, ezért odáig nem sikerült eljutnom, hogy BehaviorSubject-et varázsoljak
+a szerverről érkező adatokból. Így tehát: Hello indokolatlanul sokszor, állandóan lekért
+teljes adatbázis!
+- 'Add game' gomb átalakulása darabos hover állapotról változtatva
+- Firebase nem ad új játékhoz saját id-t (mondjuk nem is használom, but still...)
+- Szerkesztő oldal checkboxaira még valami minimum formázás ráférne.
+- Szebb kezdőlap, sablontól jobban elrugaszkodó arculat
+- Képfeltöltés funkció híján új játékoknál nincs kép
+- Undefined érték esetén a szűrök rakoncátlankodhatnak. Hibakezelés szükséges.
+
+- A rövid readme-t is megírom rövidesen, csak már hajnal 3 és aaaaaaaaaaaa....
+
 ## v0.6
 - Update metódus működik
 - Pagination hozzáadása 'Bootstrap widgets' kiegészítővel (dinamikus)

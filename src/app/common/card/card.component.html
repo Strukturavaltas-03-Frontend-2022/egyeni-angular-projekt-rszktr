@@ -3,14 +3,14 @@
     <div class="image__container">
       <img [src]='oneGame.image | imgPath' [alt]='oneGame.title'>
     </div>
-    <div class="card__status--color"></div>
+    <div class="card__status--color" [style.background-color]="statusColor"></div>
     <div class="status__container">
-      <div class="status--text">{{oneGame.status}}</div>
+      <div class="status--text" [style.background-color]="statusColor">{{oneGame.status | wishlistCheck: oneGame}}</div>
     </div>
   </div>
   <div class="card__bottom">
     <div class="tag__container">
-      <div class="tag tag--platform">{{oneGame.platform}}</div>
+      <div class="tag tag--platform" [style.background-color]="platformColor">{{oneGame.platform}}</div>
       <div *ngIf="oneGame.format" class="tag tag--format">{{oneGame.format}}</div>
       <div *ngIf="oneGame.releaseYear" class="tag tag--year">{{oneGame.releaseYear}}</div>
     </div>

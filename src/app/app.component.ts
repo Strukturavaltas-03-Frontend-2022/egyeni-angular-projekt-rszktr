@@ -13,13 +13,8 @@ import { GameService } from './service/game.service';
 export class AppComponent {
   title = 'game-collection';
 
-  gameList: Game[] = [];
-
   constructor(
-    private gameService: GameService,
   ) {
-    this.gameService.getAll().subscribe((games) => {
-      this.gameList = [...games];
-    })
+
   }
 }

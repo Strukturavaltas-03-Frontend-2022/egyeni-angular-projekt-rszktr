@@ -2,32 +2,105 @@
 
   <div class="row control__container mt-3">
 
-    <div class="control__left">
-      <button routerLink="/edit/0" class="button__add" data-bs-toggle="tooltip" data-bs-placement="top"
-        title="Add game to collection">
-        <i class="fa fa-solid fa-plus"></i></button>
+    <div class="control__top">
+
+      <div class="control__search">
+        <div class="control__search--name">Search:</div>
+        <input [(ngModel)]="searchPhrase" type="text" class="form-control" id="searchInput" placeholder="Type here">
+        <label class="mx-3 my-auto" for="propertySelect">by</label>
+        <div class="form-group my-auto">
+          <select [(ngModel)]="searchProperty" class="form-select" id="propertySelect">
+            <option value="title">Title</option>
+            <option value="releaseYear">Release year</option>
+          </select>
+        </div>
+      </div>
+
+      <button routerLink="/edit/0" class="button__add me-2">
+        <i class="fa fa-solid fa-plus"></i>
+        <span>Add game</span>
+      </button>
+
+    </div>
+    <div class="control__middle">
+      <div class="control__filter">
+        <div class="control__filter--name">Filter: </div>
+        <div class="input-group">
+          <input type="checkbox" class="btn-check" id="btn-check-wii" checked="true"
+            (change)="onFilterPlatform($event)">
+          <label class="btn btn-outline-primary" for="btn-check-wii">Wii</label><br>
+
+          <input type="checkbox" class="btn-check" id="btn-check-wii-u" checked="true"
+            (change)="onFilterPlatform($event)">
+          <label class="btn btn-outline-primary" for="btn-check-wii-u">Wii U</label><br>
+
+          <input type="checkbox" class="btn-check" id="btn-check-ps4" checked="true"
+            (change)="onFilterPlatform($event)">
+          <label class="btn btn-outline-primary" for="btn-check-ps4">PS4</label><br>
+
+          <input type="checkbox" class="btn-check" id="btn-check-switch" checked="true"
+            (change)="onFilterPlatform($event)">
+          <label class="btn btn-outline-primary" for="btn-check-switch">Switch</label><br>
+        </div>
+      </div>
+
+      <div class="sort__group d-flex align-items-center">
+        <div class="sort__group--title">Sort:</div>
+        <button class="btn btn-group sort__group--buttons">
+          <button *ngIf="sortTitleAscend" (click)="onSortClick($event)" class="btn btn-secondary button__title">Title<i
+              class="fa fa-solid fa-caret-up ms-2"></i>
+          </button>
+          <button *ngIf="!sortTitleAscend" (click)="onSortClick($event)" class="btn btn-secondary button__title">Title<i
+              class="fa fa-solid fa-caret-down ms-2"></i>
+          </button>
+          <button *ngIf="sortYearAscend" (click)="onSortClick($event)" class="btn btn-secondary button__year">Year<i
+              class="fa fa-solid fa-caret-up ms-2"></i>
+          </button>
+          <button *ngIf="!sortYearAscend" (click)="onSortClick($event)" class="btn btn-secondary button__year">Year<i
+              class="fa fa-solid fa-caret-down ms-2"></i>
+          </button>
+          <button *ngIf="sortStatusAscend" (click)="onSortClick($event)"
+            class="btn btn-secondary button__status">Status<i class="fa fa-solid fa-caret-up ms-2"></i>
+          </button>
+          <button *ngIf="!sortStatusAscend" (click)="onSortClick($event)"
+            class="btn btn-secondary button__status">Status<i class="fa fa-solid fa-caret-down ms-2"></i>
+          </button>
+        </button>
+      </div>
+
     </div>
 
-    <div class="control__right">
+    <div class="control__bottom">
       <ngb-pagination class="control__pagination" [(page)]="page" [pageSize]="pageSize"
-        [collectionSize]="collectionSize" class="d-flex justify-content-end pe-2">
+        [collectionSize]="collectionSize" class="d-flex justify-content-center">
       </ngb-pagination>
     </div>
   </div>
 
   <div class="row" class="grid__games">
-    <div *ngFor="let game of gameList$ | async | slice: (page-1) * pageSize : page * pageSize" class="cell__game">
-      <app-card [oneGame]="game"></app-card>
+    <div *ngFor="let game of gameList$ 
+      | filterPlatform: filterRequest
+      | sortYear: sortYearRequest: sortYearAscend
+      | sortTitle: sortTitleRequest: sortTitleAscend
+      | sortFormat: sortFormatRequest: sortFormatAscend
+      | sortPlatform: sortPlatformRequest: sortPlatformAscend
+      | sortStatus: sortStatusRequest: sortStatusAscend
+      | search: searchPhrase : searchProperty
+      | slice: (page-1) * pageSize : page * pageSize" class="cell__game">
+      <app-card [oneGame]="game" (deleteCardClick)="onDeleteHappened()"></app-card>
     </div>
   </div>
 
   <div class="row">
     <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="collectionSize"
-      class="d-flex justify-content-end pe-4">
+      class="d-flex justify-content-center">
     </ngb-pagination>
   </div>
 
 </div>
+
+
+
 
 
 <!-- Táblázatos megjelenítés -->
@@ -41,7 +114,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let row of gameList$ | async">
+        <tr *ngFor="let row of gameList$">
           <td *ngFor="let col of columns">
             {{row[col.key]}}
           </td>

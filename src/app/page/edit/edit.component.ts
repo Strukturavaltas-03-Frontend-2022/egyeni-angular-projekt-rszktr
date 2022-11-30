@@ -29,6 +29,7 @@ export class EditComponent implements OnInit {
     private config: ConfigService
   ) { }
 
+
   ngOnInit(): void {
     this.ar.params.subscribe((params) => {
       this.id = params['id'];
@@ -54,11 +55,17 @@ export class EditComponent implements OnInit {
     })
   }
 
-  onUpdate(): void {
+  onSubmitData(): void {
     const game = this.gameFormGroup.value;
-    game.firebaseId = this.game?.firebaseId;
-    this.gameService.update(game).subscribe(
-      game => this.router.navigate(['/', 'list']),
-    )
+    if (this.id == '0') {
+      this.gameService.create(game).subscribe(
+        game => this.router.navigate(['/', 'list'])
+      )
+    } else {
+      game.firebaseId = this.game?.firebaseId;
+      this.gameService.update(game).subscribe(
+        game => this.router.navigate(['/', 'list']),
+      )
+    }
   }
 }
